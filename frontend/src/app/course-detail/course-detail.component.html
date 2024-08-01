@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Course Detail</h2>
+  <div *ngIf="course" class="card">
+    <div class="card-body">
+      <h3>{{ course.course_name }}</h3>
+      <p><strong>University:</strong> {{ course.university }}</p>
+      <p><strong>City:</strong> {{ course.city }}</p>
+      <p><strong>Country:</strong> {{ course.country }}</p>
+      <p><strong>Description:</strong> {{ course.course_description }}</p>
+      <p><strong>Start Date:</strong> {{ course.start_date }}</p>
+      <p><strong>End Date:</strong> {{ course.end_date }}</p>
+      <p><strong>Price:</strong> {{ course.price }} {{ course.currency }}</p>
+      <button class="btn btn-danger" (click)="deleteCourse()">Delete</button>
+      <a class="btn btn-primary" [routerLink]="['/courses', course._id, 'edit']">Edit</a>
+      <a class="btn btn-secondary" [routerLink]="['/courses']">Back</a>
+    </div>
+  </div>
+</div>

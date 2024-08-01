@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Courses List</h2>
+  <a class="btn btn-primary mb-3" [routerLink]="['/courses/new']">Add New Course</a>
+  <div class="card">
+    <div class="card-body">
+      <input type="text" class="form-control mb-3" placeholder="Search courses" [(ngModel)]="search" (ngModelChange)="onSearchChange()">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">University</th>
+            <th scope="col">City</th>
+            <th scope="col">Country</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ course.course_name }}</td>
+            <td>{{ course.university }}</td>
+            <td>{{ course.city }}</td>
+            <td>{{ course.country }}</td>
+            <td>
+              <a class="btn btn-success" [routerLink]="['/courses', course._id]">View</a>
+              <a class="btn btn-primary" [routerLink]="['/courses', course._id, 'edit']">Edit</a>
+              <button class="btn btn-danger" (click)="deleteCourse(course._id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
